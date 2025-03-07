@@ -12,10 +12,9 @@ class Menu(object):
     title = True
     title_border = True
     title_padding = " "
-    footer =  True
+    footer = True
     menu_character = "#"
     menu_width = 80
-
 
     # def __init__(self, menu_items: dict[int, tuple] | None = {100,("Exit", exit_menu)}) -> None:
     def __init__(self, menu_items: dict[int, tuple] | None = None) -> None:
@@ -33,7 +32,7 @@ class Menu(object):
         for key in sorted(self.menu_items.keys()):
             # TODO - Add Left and right padding to key
             # TODO - Add Left padding to item
-            output += f"{key} : { self.menu_items[key][0] }\n"
+            output += f"{key} : {self.menu_items[key][0]}\n"
 
         if self.footer:
             output += self.get_border()
@@ -54,7 +53,6 @@ class Menu(object):
 
     def get_border(self) -> str:
         return f"{self.menu_width * self.menu_character}\n"
-
 
     def add_menu_item(self, item: tuple, key: int = None,) -> None:
         # Get the exit menu item
