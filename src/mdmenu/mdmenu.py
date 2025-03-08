@@ -1,5 +1,5 @@
 
-# TODO - Add menu item
+
 # TODO - Remove menu item
 # TODO - Footer
 # TODO - Title
@@ -60,13 +60,17 @@ class Menu(object):
         last = self.menu_items.pop(max_key)
 
         if key is None:
-            key = next((i for i in range(1,max(list(self.menu_items.keys()))) if i not in self.menu_items.keys()), max_key)
+            # When no key is specified get the next lowest key that is not already being used
+            key = next(
+                (i for i in range(1, max(list(self.menu_items.keys()))) if i not in self.menu_items.keys()), max_key)
 
-
+        # Verify that the key to be added is not already in use
         if self.menu_items.get(key) is not None:
             raise ValueError
 
+        # Add the new key to the menu
         self.menu_items[key] = item
+        # Reinsert the exit option to the end of the menu
         max_key = max(list(self.menu_items.keys()))
         self.menu_items[max_key + 1] = last
 

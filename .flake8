@@ -1,0 +1,18 @@
+[flake8]
+# Provide a comma-separated list of glob patterns to exclude from checks.
+exclude = .git,__pycache__,dist
+
+#Set the maximum length that any line (with some exceptions) may be.
+max-line-length = 120
+
+# Print the total number of errors.
+count = True
+
+# Print the source code generating the error/warning in question.
+show-source = True
+
+# Count the number of occurrences of each error/warning code and print a report.
+statistics = True
+
+# Set the maximum allowed McCabe complexity value for a block of code.
+max-complexity = 15
