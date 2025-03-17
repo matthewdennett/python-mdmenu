@@ -3,7 +3,6 @@
 # TODO - Footer
 # TODO - Title
 # TODO - Tests
-# TODO - LINT
 
 class Menu(object):
     menu_items = {}
@@ -64,7 +63,9 @@ class Menu(object):
 
         # Verify that the key to be added is not already in use
         if self.menu_items.get(key) is not None:
-            #FIX: Log the message
+            #TODO: log a message if this throws an error
+            max_key = max(list(self.menu_items.keys()))
+            self.menu_items[max_key + 1] = last
             raise ValueError
 
         # Add the new key to the menu
@@ -88,18 +89,32 @@ if __name__ == "__main__":
     my_menu = Menu()
     print(my_menu)
     my_menu.add_menu_item(("Hello", hello), 3)
-    print("added")
+
     print(my_menu)
     my_menu.add_menu_item(("Hello 2nd", hello))
+
     print(my_menu)
     my_menu.add_menu_item(("Hello 3nd", hello))
+
     print(my_menu)
     my_menu.add_menu_item(("Hello 4nd", hello))
+
     print(my_menu)
     my_menu.add_menu_item(("Hello 5nd", hello))
-    # print(my_menu)
-    # my_menu.add_menu_item(("Hello", hello), 3)\
-    my_menu.remove_menu_item(3)
+
+    print(my_menu)
+    try:
+        my_menu.add_menu_item(("Hello", hello), 3)
+    except ValueError as e:
+        print(e)
+
     print(my_menu)
     my_menu.remove_menu_item(3)
+
+    print(my_menu)
+    try:
+        my_menu.remove_menu_item(3)
+    except KeyError as e:
+        print(e)
+
     print(my_menu)
