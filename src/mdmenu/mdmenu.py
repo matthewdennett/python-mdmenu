@@ -79,7 +79,9 @@ class Menu(object):
         :returns str: Formatted text
         """
         lines = textwrap.wrap(content, width=self.menu_width)
-        return f"{'\n'.join(lines)}\n"
+        # Backslashes are not allowed in the {} portion of f-strings
+        newline = "\n"
+        return f"{newline.join(lines)}\n"
 
     def create_title(self) -> str:
         """
