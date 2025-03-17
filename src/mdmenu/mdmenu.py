@@ -27,6 +27,7 @@ class Menu(object):
     title = True
     title_border = True
     title_padding = " "
+    title_preface = None
     footer = True
     footer_content = None
 
@@ -67,9 +68,9 @@ class Menu(object):
         if self.footer_content is None:
             return self.create_border()
 
-        return self.create_border() + self.format_footer_content(self.footer_content) + self.create_border()
+        return self.create_border() + self.format_content(self.footer_content) + self.create_border()
 
-    def format_footer_content(self, content: str) -> str:
+    def format_content(self, content: str) -> str:
         """
         Creates string formatted to the length specified by of self.menu_width long.
 
@@ -78,7 +79,7 @@ class Menu(object):
         :returns str: Formatted text
         """
         lines = textwrap.wrap(content, width=self.menu_width)
-        return f"{"\n".join(lines)}\n"
+        return f"{'\n'.join(lines)}\n"
 
     def create_title(self) -> str:
         """
@@ -95,6 +96,9 @@ class Menu(object):
 
         if self.title_border:
             output += self.create_border()
+
+        if self.title_preface is not None:
+            output += self.format_content(self.title_preface) + self.create_border()
 
         return output
 
@@ -196,6 +200,7 @@ if __name__ == "__main__":
         print(e)
 
     my_menu.footer_content = "this is a big string "*20
+    my_menu.title_preface = "this is a big string "*20
 
     print(my_menu)
     ans = input("Make A Choice")
