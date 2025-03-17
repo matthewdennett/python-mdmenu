@@ -1,6 +1,5 @@
 
 
-# TODO - Remove menu item
 # TODO - Footer
 # TODO - Title
 # TODO - Tests
@@ -26,7 +25,7 @@ class Menu(object):
         output: str = ""
 
         if self.title:
-            output += self.get_title()
+            output += self.create_title()
 
         for key in sorted(self.menu_items.keys()):
             # TODO - Add Left and right padding to key
@@ -34,23 +33,23 @@ class Menu(object):
             output += f"{key} : {self.menu_items[key][0]}\n"
 
         if self.footer:
-            output += self.get_border()
+            output += self.create_border()
 
         return output
 
-    def get_title(self) -> str:
+    def create_title(self) -> str:
         output: str = ""
         if self.title_border:
-            output += self.get_border()
+            output += self.create_border()
 
         output += f"{self.menu_name:{self.title_padding}^{self.menu_width}}\n"
 
         if self.title_border:
-            output += self.get_border()
+            output += self.create_border()
 
         return output
 
-    def get_border(self) -> str:
+    def create_border(self) -> str:
         return f"{self.menu_width * self.menu_character}\n"
 
     def add_menu_item(self, item: tuple, key: int = None,) -> None:
@@ -65,6 +64,7 @@ class Menu(object):
 
         # Verify that the key to be added is not already in use
         if self.menu_items.get(key) is not None:
+            #FIX: Log the message
             raise ValueError
 
         # Add the new key to the menu
@@ -72,6 +72,11 @@ class Menu(object):
         # Reinsert the exit option to the end of the menu
         max_key = max(list(self.menu_items.keys()))
         self.menu_items[max_key + 1] = last
+
+    def remove_menu_item(self, key: int) -> tuple:
+        #TODO: log a message if this throws an error
+        return self.menu_items.pop(key)
+
 
 
 if __name__ == "__main__":
@@ -92,5 +97,9 @@ if __name__ == "__main__":
     my_menu.add_menu_item(("Hello 4nd", hello))
     print(my_menu)
     my_menu.add_menu_item(("Hello 5nd", hello))
+    # print(my_menu)
+    # my_menu.add_menu_item(("Hello", hello), 3)\
+    my_menu.remove_menu_item(3)
     print(my_menu)
-    my_menu.add_menu_item(("Hello", hello), 3)
+    my_menu.remove_menu_item(3)
+    print(my_menu)
