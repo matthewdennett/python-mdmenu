@@ -16,7 +16,6 @@ class Menu(object):
     menu_character = "#"
     menu_width = 80
 
-    # def __init__(self, menu_items: dict[int, tuple] | None = {100,("Exit", exit_menu)}) -> None:
     def __init__(self, menu_items: dict[int, tuple] | None = None) -> None:
         if menu_items is None:
             self.menu_items = {1: ("Exit", exit)}
