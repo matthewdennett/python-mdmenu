@@ -18,7 +18,7 @@ import textwrap
 # """
 
 
-class Menu(object):
+class Menu():
     menu_items = {}
     menu_name = "Menu"
     menu_character = "#"
