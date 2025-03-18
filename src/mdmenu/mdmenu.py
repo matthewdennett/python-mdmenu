@@ -160,7 +160,12 @@ class Menu():
         return self.menu_items.pop(key)
 
 
-def invalid():
+def invalid(*arg) -> None:
+    """
+    Default function called when an invalid menu option is selected.
+
+    :param arg any: Any number of args passed to the function
+    """
     print("INVALID CHOICE!")
 
 
@@ -168,6 +173,9 @@ if __name__ == "__main__":
     print("Running")
 
     def hello(my_str: str = ""):
+        """
+        Test function
+        """
         print(f"hello {my_str}")
 
     my_menu = Menu()
