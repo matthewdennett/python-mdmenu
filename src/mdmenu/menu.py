@@ -8,6 +8,8 @@ A customisable text driven menu system.
 
 # TODO - Build workflow
 
+# TODO - Rename Menu to MDMenu
+
 # TODO - README
 # TODO - CODECOV badge
 # TODO - Python version badge
@@ -19,7 +21,7 @@ A customisable text driven menu system.
 import textwrap
 
 
-class Menu():
+class Menu:
     """
     Object for the creation and configuration of a text driven menu system. Public functions are
     provided to add and remove items from the menu.
