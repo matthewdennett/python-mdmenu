@@ -3,25 +3,23 @@ A customisable text driven menu system.
 """
 # TODO - Tests
 # TODO - Tests workflow
-    # TODO -Python versions
-    # TODO -Upload to codecov
+#   TODO - Python versions
+#   TODO - Upload to codecov
 
 # TODO - Build workflow
-
-# TODO - Rename Menu to MDMenu
 
 # TODO - README
 # TODO - CODECOV badge
 # TODO - Python version badge
 
 # TODO - Add more details to the project toml
-    # TODO - Python version
-    # Classifiers
+#   TODO - Python version
+#   TODO - Classifiers
 
 import textwrap
 
 
-class Menu:
+class MDMenu():
     """
     Object for the creation and configuration of a text driven menu system. Public functions are
     provided to add and remove items from the menu.
@@ -71,20 +69,21 @@ class Menu:
 # TODO - Consider using this for input validation for instance attributes - Link below
 # https://stackoverflow.com/questions/2825452/correct-approach-to-validate-attributes-of-an-instance-of-class
     def __init__(self,
+                 footer_content=None,
+                 footer=True,
+                 key_trailing_gap=3,
+                 key_width=7,
+                 menu_character="#",
+                 menu_hold_last=True,
                  menu_items: dict[int, tuple] | None = None,
                  menu_name="Menu",
-                 menu_character="#",
                  menu_width=80,
-                 menu_hold_last=True,
-                 title=True,
                  title_border=True,
                  title_padding=" ",
                  title_preface=None,
-                 footer=True,
-                 footer_content=None,
-                 key_width=7,
-                 key_trailing_gap=3) -> None:
-
+                 title=True
+                ) -> None:
+        # TODO - Why not set a default like the rest
         if menu_items is None:
             self.menu_items = {1: ("Exit", exit)}
         else:
@@ -277,7 +276,7 @@ if __name__ == "__main__":
         """
         print(f"hello {my_str}")
 
-    my_menu = Menu()
+    my_menu = MDMenu()
     print(my_menu)
     my_menu.add_menu_item(("Hello", hello), 3)
 

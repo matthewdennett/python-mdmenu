@@ -12,6 +12,7 @@
         "inlinevar",
         "isort",
         "ixin",
+        "mdmenu",
         "metaclass",
         "msvs",
         "mymodule",
