@@ -16,6 +16,10 @@ A customisable text driven menu system.
 #   TODO - Python version
 #   TODO - Classifiers
 
+# TODO - Update all doc strings
+# TODO - Move doco to readthedocs - https://docs.readthedocs.com/platform/stable/tutorial/
+
+
 import textwrap
 
 
@@ -26,24 +30,33 @@ class MDMenu():
 
     Several instance attributes control various aspects of menu:
 
+        footer_content (default: None)
+            A text body to be displayed in the footer of the menu, after the main body of the menu.
+        footer (default: True)
+            Enabled by default, this boolean attribute indicates if the menu will be displayed with
+            footer.
+        key_trailing_gap (default: 3)
+            The number of white space to be added after the menu item key and before the items name
+            when displaying the menu.
+                eg.     5:<key_trailing_gap>Hello World
+        key_width (default: 7)
+            The number of characters to pad the menu item key to when displayed.
+                eg.<key_width>:     Hello World
+        menu_character (default: "#")
+            The character used to create borders of 'self.menu_width' for the menu
+        menu_hold_last (default: True)
+            When true, the last item in the 'self.menu_items" dict is maintained as the item with
+            the highest/last key value. As the default and most likely first item added is the exit,
+            this provides a easy mechanism to keep it as the last last menu item even when key
+            values are automatically assigned.
         menu_items (default: {1: ("Exit", exit)})
             The dict of menu items in the system. Each item has a int key and a tuple with the items
             title and associated function.
         menu_name (default: "Menu")
             The name of the menu as a string. The name is displayed when the attribute 'title' is
             true.
-        menu_character (default: "#")
-            The character used to create borders of 'self.menu_width' for the menu
         menu_width (default: 80)
             The width of the menu system
-        menu_hold_last (default: True)
-            When true, the last item in the 'self.menu_items" dict is maintained as the item with
-            the highest/last key value. As the default and most likely first item added is the exit,
-            this provides a easy mechanism to keep it as the last last menu item even when key
-            values are automatically assigned.
-        title (default: True)
-            Enabled by default, this boolean attribute indicates if the menus title should be
-            displayed.
         title_border (default: True)
             Enabled by default, this boolean attribute indicates if the menus title should be
             surrounded by a border of 'self.menu_character'.
@@ -52,18 +65,22 @@ class MDMenu():
             menu title.
         title_preface (default: None)
             A text body to be displayed between the menu title and the main body of the menu.
-        footer (default: True)
-            Enabled by default, this boolean attribute indicates if the menu will be displayed with
-            footer.
-        footer_content (default: None)
-            A text body to be displayed in the footer of the menu, after the main body of the menu.
-        key_width (default: 7)
-            The number of characters to pad the menu item key to when displayed.
-                eg.<key_width>:     Hello World
-        key_trailing_gap (default: 3)
-            The number of white space to be added after the menu item key and before the items name
-            when displaying the menu.
-                eg.     5:<key_trailing_gap>Hello World
+        title (default: True)
+            Enabled by default, this boolean attribute indicates if the menus title should be
+            displayed.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     """
 # TODO - Consider using this for input validation for instance attributes - Link below
@@ -243,6 +260,10 @@ class MDMenu():
         # Reinsert the exit option to the end of the menu
         max_key = max(list(self.menu_items.keys()))
         self.menu_items[max_key + 1] = last
+
+
+
+
 
     def remove_menu_item(self, key: int) -> tuple:
         """
