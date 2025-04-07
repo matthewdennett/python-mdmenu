@@ -1,10 +1,9 @@
 # pylint: disable=W0212
+# flake8: noqa:W291
 import pytest
 
 from mdmenu import MDMenu
 from mdmenu import invalid
-
-
 
 
 def test_main():

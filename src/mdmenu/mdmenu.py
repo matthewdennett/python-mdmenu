@@ -67,21 +67,9 @@ class MDMenu():
         title (default: True)
             Enabled by default, this boolean attribute indicates if the menus title should be
             displayed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     """
+
+
 # TODO - Consider using this for input validation for instance attributes - Link below
 # https://stackoverflow.com/questions/2825452/correct-approach-to-validate-attributes-of-an-instance-of-class
     def __init__(self,
@@ -98,7 +86,7 @@ class MDMenu():
                  title_padding=" ",
                  title_preface=None,
                  title=True
-                ) -> None:
+                 ) -> None:
         # TODO - Why not set a default like the rest
         if menu_items is None:
             self.menu_items = {1: ("Exit", exit)}
@@ -259,10 +247,6 @@ class MDMenu():
         # Reinsert the exit option to the end of the menu
         max_key = max(list(self.menu_items.keys()))
         self.menu_items[max_key + 1] = last
-
-
-
-
 
     def remove_menu_item(self, key: int) -> tuple:
         """
