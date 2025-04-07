@@ -8,7 +8,6 @@ A customisable text driven menu system.
 
 # TODO - Build workflow
 
-# TODO - README
 # TODO - CODECOV badge
 # TODO - Python version badge
 

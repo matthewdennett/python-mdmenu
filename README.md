@@ -5,9 +5,7 @@
 
 ![pylint](https://img.shields.io/badge/PyLint-8.00-yellow?logo=python&logoColor=white)
 
-
 [![Build](https://github.com/matthewdennett/python-mdmenu/actions/workflows/build.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/build.yml)
-
 
 [![codecov](https://codecov.io/gh/matthewdennett/python-mdmenu/branch/main/graph/badge.svg)](https://codecov.io/gh/matthewdennett/python-mdmenu)
 
@@ -26,6 +24,11 @@ pip install mdmenu
 
 ## Usage
 
+A new MDMenu object can be instantiated by calling its empty constructor for a default menu or it can be called with any combination of the instance [parameters](#parameters). Menu items can be added and removed with [```.add_menu_item()```](examples/add_option.py) and [```.remove_menu_item()```](examples/remove_option.py) respectively.
+
+The appearance of the menu is customisable by setting any of the menu instance [parameters](#parameters)
+
+
 Create a default menu object
 ```python
 # examples/default_menu.py
@@ -36,7 +39,7 @@ print(my_menu)
 
 """
 ################################################################################
-                                      Menu                                      
+                                      Menu
 ################################################################################
      1:   Exit
 ################################################################################
@@ -62,7 +65,7 @@ print(my_menu)
 
 """
 ################################################################################
-                                      Menu                                      
+                                      Menu
 ################################################################################
      1:   Item 1
      2:   Item 2
@@ -71,111 +74,17 @@ print(my_menu)
 """
 ```
 
-Create a menu with customised size and formatting
-```python
-# examples/custom_formatting.py
-from mdmenu import MDMenu
-
-my_menu = MDMenu(
-    footer_content="This is the footer_content",
-    key_trailing_gap=1,
-    key_width=3,
-    menu_character="=",
-    menu_name="My Custom Menu",
-    menu_width=40,
-    title_padding="-",
-    title_preface="This is the title_preface",
-                 )
-print(my_menu)
-
-"""
-========================================
--------------My Custom Menu-------------
-========================================
-This is the title_preface
-========================================
- 1: Exit
-========================================
-This is the footer_content
-========================================
-"""
-```
-
-Add a new menu option
-```python
-# examples/add_option.py
-from mdmenu import MDMenu
-
-def hello_world():
-    print("Hello World!")
-
-my_menu = MDMenu()
-
-# Add option with a index key
-# by default the last item is moved to the next highest index to remain at the end in the menu
-# unless menu_hold_last is set to False.
-my_menu.add_menu_item(item=("New Item 1", hello_world), key=4)
-
-# Add option without index key
-# The lowest available index is automatically assigned
-my_menu.add_menu_item(item=("New Item 2", hello_world))
-print(my_menu)
-
-"""
-################################################################################
-                                      Menu                                      
-################################################################################
-     1:   New Item 2
-     4:   New Item 1
-     5:   Exit
-################################################################################
-"""
-```
-
-Remove a menu option from a menu
-```python
-# examples/remove_options.py
-from mdmenu import MDMenu
-
-def hello_world():
-    print("Hello World!")
-
-my_options = {
-    1: ("Item 1", hello_world),
-    2: ("Item 2", hello_world),
-    10: ("Item x", hello_world)
-}
-
-my_menu = MDMenu(menu_items=my_options)
-my_menu.remove_menu_item(key=2)
-print(my_menu)
-
-"""
-################################################################################
-                                      Menu                                      
-################################################################################
-     1:   Item 1
-    10:   Item x
-################################################################################
-"""
-```
-
-Call menu option function
-```python
-
-
-```
 
 
 ## Parameters
 
 The following table list the parameters of the Menu which can be altered to customise the look and
-formatting of the table. 
+formatting of the table.
 
 | Parameter | Description |
 | :--- | :--- |
 | **footer_content** <br>Type: str <br>Default: None | A text body to be displayed in the footer of the menu, after the main body of the menu. |
-| **footer** <br>Type: bool <br>Default: True        | Enabled by default, this boolean attribute indicates if the menu will be displayed with footer. | 
+| **footer** <br>Type: bool <br>Default: True        | Enabled by default, this boolean attribute indicates if the menu will be displayed with footer. |
 | **key_trailing_gap**<br>Type:int <br>Default: 3    | The number of white space to be added after the menu item key and before the items name when displaying the menu. <br>eg.     5:<key_trailing_gap>Hello World |
 | **key_width** <br>Type: int <br>Default: 7         | The number of characters to pad the menu item key to when displayed.<br>eg.<key_width>:     Hello World |
 | **menu_character** <br>Type: str <br>Default: '#'  | The character used to create borders of 'self.menu_width' for the menu |
@@ -187,4 +96,18 @@ formatting of the table.
 | **title_padding** <br>Type: str <br>Default: " "   | The character to use to pad the left and right of 'self.menu_name' when displayed in the menu title.  |
 | **title_preface** <br>Type: str <br>Default: None  | A text body to be displayed between the menu title and the main body of the menu. |
 | **title** <br>Type: bool <br>Default: True         | Enabled by default, this boolean attribute indicates if the menus title should be displayed.  |
+
+
+
+## Examples
+Several working examples have been included and are listed in the table below
+
+| Link | Description |
+| --- | --- |
+| [examples/default_menu.py](examples/default_menu.py)| Create an empty menu with the default formatting and implied exit menu option|
+| [examples/examples/defined_options.py](examples/defined_options.py)| Create a menu with a predefined set of menu options |
+| [examples/examples/add_option.py](examples/add_option.py)| Add a menu option with a defined index key and with out and index key |
+| [examples/remove_option.py](examples/remove_option.py)| Remove a menu option from the menu |
+| [examples/custom_formatting.py](examples/custom_formatting.py)| Create menu with custom formatting |
+| [examples/call_function.py](examples/call_function.py)| Call a function selected from the menu |
 

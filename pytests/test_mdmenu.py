@@ -1,9 +1,10 @@
+# pylint: disable=W0212
 import pytest
 
 from mdmenu import MDMenu
 from mdmenu import invalid
 
-# pylint: disable=W0212:protected-access
+
 
 
 def test_main():

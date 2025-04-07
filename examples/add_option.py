@@ -1,8 +1,11 @@
 # examples/add_option.py
+# pylint: disable=W0105, C0114, C0116
 from mdmenu import MDMenu
+
 
 def hello_world():
     print("Hello World!")
+
 
 my_menu = MDMenu()
 
@@ -18,7 +21,7 @@ print(my_menu)
 
 """
 ################################################################################
-                                      Menu                                      
+                                      Menu
 ################################################################################
      1:   New Item 2
      4:   New Item 1

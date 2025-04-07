@@ -1,4 +1,5 @@
 # examples/custom_formatting.py
+# pylint: disable=W0105, C0114, C0116
 from mdmenu import MDMenu
 
 my_menu = MDMenu(
