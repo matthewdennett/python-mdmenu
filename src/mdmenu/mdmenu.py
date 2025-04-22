@@ -175,7 +175,7 @@ class MDMenu():
         lines = textwrap.wrap(content, width=remaining_space)
 
         # Remove the first line so indentation in not applied
-        first_line = lines.pop()
+        first_line = lines.pop(0)
 
         # Add the indentations to all lines except the first line and then join back to one list of lines
         space = " " * taken_space
@@ -225,28 +225,27 @@ class MDMenu():
 
         :raises ValueError: A ValueError is raised when a key which already exist is added.
         """
-        # TODO - Add the ability to not hold the lst item with menu_hold_last
-        # Get the exit menu item
-        max_key = max(list(self.menu_items.keys()))
-        last = self.menu_items.pop(max_key)
+
+        highest_index = max(list(self.menu_items.keys()))
 
         if key is None:
             # When no key is specified get the next lowest key that is not already being used
             key = next(
-                (i for i in range(1, max(list(self.menu_items.keys()))) if i not in self.menu_items.keys()), max_key)
+                (i for i in range(1, highest_index) if i not in self.menu_items.keys()), highest_index)
+            # When auto allocating a key and not holding last we need to avoid a collision
+            if key == highest_index and not self.menu_hold_last:
+                key += 1
 
-        # Verify that the key to be added is not already in use
-        if self.menu_items.get(key) is not None:
-            # TODO: log a message if this throws an error
-            max_key = max(list(self.menu_items.keys()))
-            self.menu_items[max_key + 1] = last
-            raise ValueError
+        if key >= highest_index and self.menu_hold_last:
+            # Move the current highest item up by one to maintain its position
+            last_item = self.menu_items.pop(highest_index)
+            self.menu_items[key + 1] = last_item
 
-        # Add the new key to the menu
+        if key in self.menu_items:
+            raise ValueError(f"Key {key} already exists in the menu.")
+
         self.menu_items[key] = item
-        # Reinsert the exit option to the end of the menu
-        max_key = max(list(self.menu_items.keys()))
-        self.menu_items[max_key + 1] = last
+
 
     def remove_menu_item(self, key: int) -> tuple:
         """
@@ -271,56 +270,26 @@ def invalid(*arg) -> None:
     print("INVALID CHOICE!")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     print("Running")
 
-    def hello(my_str: str = ""):
+    def hello():
         """
         Test function
         """
-        print(f"hello {my_str}")
+        print("Hello world")
 
     my_menu = MDMenu()
-    print(my_menu)
-    my_menu.add_menu_item(("Hello", hello), 3)
+    my_menu.add_menu_item(item=("Hello", hello))
 
-    print(my_menu)
-    my_menu.add_menu_item(("Hello 2nd", hello))
+    while True:
+        print(my_menu)
+        ans = input("Make A Choice: ")
 
-    print(my_menu)
-    my_menu.add_menu_item(("Hello 3nd", hello))
+        try:
+            item_name, function_called = my_menu.menu_items.get(int(ans), [None, invalid])
+            function_called()
+        except ValueError:
+            print(("Input must be a valise int."))
 
-    print(my_menu)
-    my_menu.add_menu_item(("Hello 4nd", hello))
 
-    print(my_menu)
-    my_menu.add_menu_item(("Hello 5nd", hello))
-
-    print(my_menu)
-    try:
-        my_menu.add_menu_item(("Hello", hello), 3)
-    except ValueError as e:
-        print(e)
-
-    print(my_menu)
-    my_menu.remove_menu_item(3)
-
-    print(my_menu)
-    try:
-        my_menu.remove_menu_item(3)
-    except KeyError as e:
-        print(e)
-
-    my_menu.footer_content = "this is a big string "*20
-    my_menu.title_preface = "this is a big string "*20
-
-    print(my_menu)
-    my_menu.add_menu_item(("this is a big string "*10, hello))
-
-    print(my_menu)
-    ans = input("Make A Choice")
-    # my_menu.get(ans,[None,invalid])[1]()
-    print(my_menu.menu_items.get(int(ans)))
-    function_name, function_called = my_menu.menu_items.get(int(ans), [None, invalid])
-
-    function_called("wold")
