@@ -3,7 +3,7 @@
 [![Codecov](https://codecov.io/gh/matthewdennett/python-mdmenu/branch/main/graph/badge.svg)](https://codecov.io/gh/matthewdennett/python-mdmenu)
 [![PyPI version](https://badge.fury.io/py/mdmenu.svg)](https://pypi.org/project/mdmenu/)
 [![Python versions](https://img.shields.io/pypi/pyversions/mdmenu)](https://pypi.org/project/mdmenu/)
-[![Publish](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml)
+[![PyPI Publish](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml)
 
 # mdmenu
 

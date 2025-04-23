@@ -1,3 +1,7 @@
+"""
+A customisable text driven menu system.
+Entry point when module is run directly.
+"""
 from .mdmenu import MDMenu
 from .mdmenu import invalid
 
