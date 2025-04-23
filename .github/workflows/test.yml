@@ -94,9 +94,11 @@ jobs:
       - name: Test install as wheel
         run: |
           pip install dist/mdmenu-*.whl
+          python -m mdmenu
           pip uninstall -y mdmenu
 
       - name: Test install archive
         run: |
           pip install dist/mdmenu-*.tar.gz
+          python -m mdmenu
           pip uninstall -y mdmenu
