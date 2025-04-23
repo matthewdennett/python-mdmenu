@@ -93,7 +93,6 @@ formatting of the table.
 | **title** <br>Type: bool <br>Default: True         | Enabled by default, this boolean attribute indicates if the menus title should be displayed.  |
 
 
-
 ## Examples
 Several working examples have been included and are listed in the table below
 
