@@ -1,4 +1,4 @@
-name: Lint Test and Build
+name: Lint, Test, Build and Install
 
 on:
   push:
@@ -10,8 +10,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
@@ -42,8 +40,6 @@ jobs:
           python-version: 3.11  # python version which will lint the package
           pylintrc-path: .pylintrc
 
-
-
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -73,3 +69,34 @@ jobs:
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  build-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build release distributions
+        run: |
+          python -m pip install build
+          python -m build
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+      - name: Test install as wheel
+        run: |
+          pip install dist/mdmenu-*.whl
+          pip uninstall -y mdmenu
+
+      - name: Test install archive
+        run: |
+          pip install dist/mdmenu-*.tar.gz
+          pip uninstall -y mdmenu
