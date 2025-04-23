@@ -26,14 +26,8 @@ jobs:
           pip install -e ../python-mdmenu/
 
       - name: Run tests
-        # run: pytest --cov --cov-branch --cov-report=xml
         run: pytest --cov --junitxml=junit.xml -o junit_family=legacy
 
-      # - name: Upload results to Codecov
-      #   uses: codecov/codecov-action@v5
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
