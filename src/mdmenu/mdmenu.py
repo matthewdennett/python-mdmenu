@@ -1,7 +1,6 @@
 """
 A customisable text driven menu system.
 """
-# TODO - Tests
 # TODO - Tests workflow
 #   TODO - Python versions
 #   TODO - Upload to codecov
@@ -15,7 +14,6 @@ A customisable text driven menu system.
 #   TODO - Python version
 #   TODO - Classifiers
 
-# TODO - Update all doc strings
 # TODO - Move doco to readthedocs - https://docs.readthedocs.com/platform/stable/tutorial/
 
 
@@ -110,7 +108,8 @@ class MDMenu():
         """
         Creates a representation of the menu to be displayed to the console.
 
-        :returns str: Formatted menu test of the menu
+        Returns:
+            str: Formatted menu test of the menu
         """
         output: str = ""
 
@@ -133,7 +132,8 @@ class MDMenu():
         Creates a string for the footer of the menu. If footer_content is defined, its formatted and included in the
         footer.
 
-        :returns str: Formatted menu footer text
+        Returns:
+            str: Formatted menu footer text
         """
         if self.footer_content is None:
             return self._create_border()
@@ -144,9 +144,11 @@ class MDMenu():
         """
         Creates string formatted to the length specified by of self.menu_width long.
 
-        :param content str: A string to be formatted to the width of the menu.
+        Args:
+            content (str): A string to be formatted to the width of the menu.
 
-        :returns str: Formatted text
+        Returns:
+            str: Formatted text
         """
         lines = textwrap.wrap(content, width=self.menu_width)
         # Backslashes are not allowed in the {} portion of f-strings
@@ -162,9 +164,11 @@ class MDMenu():
                          2:                   Hello 3nd
                 <key_width>:<key_trailing_gap><--- remaining space ---------------------------->
 
-        :param content str: A string to be formatted to the intended width.
+        Args:
+            content (str): A string to be formatted to the intended width.
 
-        :returns str: Formatted text
+        Returns:
+            str: Formatted text
         """
         remaining_space = self.menu_width - self.key_width - self.key_trailing_gap
         taken_space = self.key_width + self.key_trailing_gap
@@ -190,7 +194,8 @@ class MDMenu():
         Creates title string of self.menu_name. When self.title_border is true the title sting is wrapped in a border
         string of self.menu_character that is self.menu_width characters long.
 
-        :returns str: Formatted menu title text
+        Returns:
+            str: Formatted menu title text
         """
         output: str = ""
         if self.title_border:
@@ -210,7 +215,8 @@ class MDMenu():
         """
         Creates a border string of self.menu_character that is self.menu_width characters long.
 
-        :returns str: A border string self.menu_width characters long
+        Returns:
+            str: A border string self.menu_width characters long
         """
         return f"{self.menu_width * self.menu_character}\n"
 
@@ -220,10 +226,12 @@ class MDMenu():
         self.menu_hold_last is True, the last item, typically an exit option, is renumbered to remain as the last item
         in the menu.
 
-        :param item tuple: A tuple of the Menu item. (item_name, item_function)
-        :param key int: The key to add the menu item with
+        Args:
+            item (tuple): A tuple of the Menu item. (item_name, item_function)
+            key (int, optional): The key to add the menu item with. Defaults to None.
 
-        :raises ValueError: A ValueError is raised when a key which already exist is added.
+        Raises:
+            ValueError: A ValueError is raised when a key which already exist is added.
         """
 
         highest_index = max(list(self.menu_items.keys()))
@@ -246,26 +254,26 @@ class MDMenu():
 
         self.menu_items[key] = item
 
-
     def remove_menu_item(self, key: int) -> tuple:
         """
         Removes a menu item from the menu with the specified key.
 
-        :param key int: The key of the menu item to remove.
+        Args:
+            key (int): The key of the menu item to remove.
 
-        :returns tuple: The key and value removed from the menu
+        Returns:
+            tuple: The key and value removed from the menu
 
-        :raises KeyError: A keyError is raised when a key which does not exist is removed from the menu
+        Raises:
+            KeyError: A keyError is raised when a key which does not exist is removed from the menu
         """
         # TODO: log a message if this throws an error
         return self.menu_items.pop(key)
 
 
-def invalid(*arg) -> None:
+def invalid() -> None:
     """
     Default function called when an invalid menu option is selected.
-
-    :param arg any: Any number of args passed to the function
     """
     print("INVALID CHOICE!")
 
@@ -291,5 +299,4 @@ if __name__ == "__main__":  # pragma: no cover
             function_called()
         except ValueError:
             print(("Input must be a valise int."))
-
 
