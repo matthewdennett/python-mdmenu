@@ -1,7 +1,9 @@
 # pylint: disable=W0212
 # flake8: noqa:W291
+"""
+Testing for mdmenu
+"""
 import pytest
-
 from mdmenu import MDMenu
 from mdmenu import invalid
 
@@ -63,6 +65,9 @@ def test_str():
 
 
 def test_create_footer():
+    """
+    Test that the expected footer string and content is created
+    """
     result = '''################################################################################\n'''
     result_with_content = '''\
 ################################################################################
@@ -225,7 +230,9 @@ def test_add_with_no_index_no_hold_last():
 
 
 def test_remove():
-    # Remove menu item
+    """
+    Test that an item can be removed from the menu
+    """
 
     my_menu = MDMenu()
     test_item1 = ("test-1", exit)
@@ -254,4 +261,4 @@ def test_invalid():
     """
     Test the default function for invalid entries works
     """
-    assert invalid() == None
+    assert invalid() is None

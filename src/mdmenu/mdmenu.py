@@ -1,20 +1,7 @@
 """
 A customisable text driven menu system.
 """
-
-
-# TODO - Build workflow
-
-# TODO - CODECOV badge
-# TODO - Python version badge
-
-# TODO - Add more details to the project toml
-#   TODO - Python version
-#   TODO - Classifiers
-
 # TODO - Move doco to readthedocs - https://docs.readthedocs.com/platform/stable/tutorial/
-
-
 import textwrap
 
 
@@ -297,4 +284,3 @@ if __name__ == "__main__":  # pragma: no cover
             function_called()
         except ValueError:
             print(("Input must be a valise int."))
-
