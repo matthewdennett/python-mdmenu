@@ -2,8 +2,6 @@
 A customisable text driven menu system.
 """
 
-#   TODO - Python versions
-
 
 # TODO - Build workflow
 
