@@ -77,7 +77,7 @@ class MDMenu():
                  key_width=7,
                  menu_character="#",
                  menu_hold_last=True,
-                 menu_items: dict[int, tuple] | None = None,
+                 menu_items=None,
                  menu_name="Menu",
                  menu_width=80,
                  title_border=True,
