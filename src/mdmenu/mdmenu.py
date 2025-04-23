@@ -1,9 +1,9 @@
 """
 A customisable text driven menu system.
 """
-# TODO - Tests workflow
+
 #   TODO - Python versions
-#   TODO - Upload to codecov
+
 
 # TODO - Build workflow
 

@@ -48,6 +48,19 @@ def test_str():
     my_menu = MDMenu()
     assert str(my_menu) == result
 
+    my_menu.title = False
+    result = '''\
+     1:   Exit
+################################################################################
+'''
+    assert str(my_menu) == result
+
+    my_menu.footer = False
+    result = '''\
+     1:   Exit
+'''
+    assert str(my_menu) == result
+
 
 def test_create_footer():
     result = '''################################################################################\n'''
@@ -120,7 +133,6 @@ preface string that is long enough to force wrapping
     my_menu.title_border = True
     my_menu.title_preface = "This is the preface string that is long enough to force wrapping" *2
     assert my_menu._create_title() == result
-
 
 def test_create_border():
     """

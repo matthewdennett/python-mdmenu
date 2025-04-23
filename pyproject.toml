@@ -2,14 +2,20 @@
 name = "mdmenu"
 version = "0.0.0"
 authors = [
-  { name = "Matt Dennett", email = "dennett.matthew@gmail.com" }
+  { name = "Matt Dennett", email = "dennett.matthew+mdmenu@gmail.com" }
 ]
-description = "A small example package"
+description = "A customisable text driven menu system."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent"
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 license = "GPL-3.0-or-later"
 
