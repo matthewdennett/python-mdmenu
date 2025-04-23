@@ -98,10 +98,10 @@ Several working examples have been included and are listed in the table below
 
 | Link | Description |
 | --- | --- |
-| [examples/default_menu.py](examples/default_menu.py)| Create an empty menu with the default formatting and implied exit menu option|
-| [examples/examples/defined_options.py](examples/defined_options.py)| Create a menu with a predefined set of menu options |
-| [examples/examples/add_option.py](examples/add_option.py)| Add a menu option with a defined index key and with out and index key |
-| [examples/remove_option.py](examples/remove_option.py)| Remove a menu option from the menu |
-| [examples/custom_formatting.py](examples/custom_formatting.py)| Create menu with custom formatting |
-| [examples/call_function.py](examples/call_function.py)| Call a function selected from the menu |
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/default_menu.py](examples/default_menu.py)| Create an empty menu with the default formatting and implied exit menu option|
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/examples/defined_options.py](examples/defined_options.py)| Create a menu with a predefined set of menu options |
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/examples/add_option.py](examples/add_option.py)| Add a menu option with a defined index key and with out and index key |
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/remove_option.py](examples/remove_option.py)| Remove a menu option from the menu |
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/custom_formatting.py](examples/custom_formatting.py)| Create menu with custom formatting |
+| [https://github.com/matthewdennett/python-mdmenu/tree/main/examples/examples/call_function.py](examples/call_function.py)| Call a function selected from the menu |
 
