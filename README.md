@@ -1,8 +1,7 @@
 ![pylint](https://img.shields.io/badge/PyLint-9.62-yellow?logo=python&logoColor=white)
-[![Lint Test Build](https://github.com/matthewdennett/python-mdmenu/actions/workflows/list-test-build.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/list-test-build.yml)
+[![Lint, Test, Build](https://github.com/matthewdennett/python-mdmenu/actions/workflows/list-test-build.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/list-test-build.yml)
 [![Codecov](https://codecov.io/gh/matthewdennett/python-mdmenu/branch/main/graph/badge.svg)](https://codecov.io/gh/matthewdennett/python-mdmenu)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mdmenu)]
-[![Python versions](https://img.shields.io/pypi/pyversions/mdmenu)](https://pypi.org/project/mdmenu/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mdmenu)](https://pypi.org/project/mdmenu/)
 [![PyPI Publish](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml/badge.svg)](https://github.com/matthewdennett/python-mdmenu/actions/workflows/pypi-publish.yml)
 
 # mdmenu
