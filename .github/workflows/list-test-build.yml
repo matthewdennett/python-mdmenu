@@ -64,11 +64,8 @@ jobs:
       - name: Run tests
         run: pytest --cov --junitxml=junit.xml -o junit_family=legacy
 
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Codecov
+        uses: codecov/codecov-action@v5.4.2
 
   build-install:
     runs-on: ubuntu-latest
